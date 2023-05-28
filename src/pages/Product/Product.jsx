@@ -113,7 +113,7 @@ export const Product = () => {
             <div className="container">
               <div className="grid-container product-list">
                 {data.map((item) => {
-                  const { id, img, name, categoryName, rating, price } = item;
+                  const { id, img, name, rating, price } = item;
                   return (
                     <div key={id} className={id}>
                       <div className="card">
