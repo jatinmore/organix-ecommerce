@@ -3,7 +3,7 @@ import "./Navbar.css";
 export const Navbar = () => {
   return (
     <nav className="nav grid fixed bg-light box-shadow">
-      <a className="brand">Organix</a>
+      <p className="brand">Organix</p>
 
       <ul>
         <NavLink className="nav-link" to="/">
