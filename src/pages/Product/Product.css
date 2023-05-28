@@ -1,1 +1,45 @@
 @import url('../../styles/style.css');
+.sidebar {
+    height: 100%;
+    position: static;
+}
+
+.product-list {
+    grid-template-columns: auto auto auto;
+    column-gap: 2rem;
+}
+
+.size-container {
+    grid-template-columns: auto auto;
+}
+
+.size-container button {
+    width: 3rem;
+}
+
+.fa-star {
+    font-size: 0.9rem;
+    color: var(--yellow);
+}
+
+.rate {
+    color: var(--yellow);
+}
+
+.category p,
+.rating p,
+.size p {
+    padding-top: 1rem;
+}
+
+.card-img {
+    /* height: 10rem;
+    width: 16.25rem; */
+    height: 12rem;
+    width: 20rem;
+}
+
+.text-left {
+    margin-right: 16rem;
+    font-size: 1rem;
+}
