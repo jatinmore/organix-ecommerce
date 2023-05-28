@@ -1,0 +1,12 @@
+@import url("../../styles/style.css");
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 1rem;
+    color: black;
+}
