@@ -1,12 +1,27 @@
 @import url("../../styles/style.css");
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+.nav-link {
+    padding: 0.3rem;
 }
 
-.nav-link {
+.btn-cart-icon {
+    background-color: var(--white);
+}
+
+.nav a {
     text-decoration: none;
-    padding: 1rem;
-    color: black;
+}
+
+nav.grid {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+nav ul {
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: row;
+    grid-column: 3;
+    justify-content: start;
+    column-gap: 2rem;
+    list-style-type: none;
 }

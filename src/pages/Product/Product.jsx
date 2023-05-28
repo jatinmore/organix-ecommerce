@@ -1,3 +1,3 @@
 export const Product = () => {
-  return <div>Product page</div>;
+  return <div className="container">Product page</div>;
 };
