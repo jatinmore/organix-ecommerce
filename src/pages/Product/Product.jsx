@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./Product.css";
 import { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ProductContext } from "../../contexts/productContext";
 
 export const Product = () => {
   const [data, setData] = useState([]);
@@ -13,7 +16,13 @@ export const Product = () => {
       console.error(error);
     }
   };
+  // const { productDetailHandler } = useContext(ProductContext);
+  const navigate = useNavigate();
 
+  const productDetailHandler = (id) => {
+    navigate(`/productDetail/${id}`);
+    console.log(id);
+  };
   useEffect(() => {
     getData();
   }, []);
@@ -118,6 +127,7 @@ export const Product = () => {
                     <div key={id} className={id}>
                       <div className="card">
                         <img
+                          onClick={() => productDetailHandler(id)}
                           className="card-img"
                           src={img}
                           alt="product_image"
