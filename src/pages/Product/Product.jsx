@@ -1,5 +1,5 @@
 import "./Product.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ProductContext } from "../../contexts/productContext";
 export const Product = () => {

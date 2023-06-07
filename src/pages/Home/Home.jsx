@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useEffect } from "react";
 import img2 from "../../assets/OFFER.png";
 import img1 from "../../assets/banner.png";
 import { useContext } from "react";
