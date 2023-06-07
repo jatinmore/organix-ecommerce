@@ -1,12 +1,14 @@
 import { useParams } from "react-router-dom";
-import { products } from "../../backend/db/products";
+import { useContext } from "react";
+import { ProductContext } from "../../contexts/productContext";
 export const ProductDetail = () => {
+  const { data } = useContext(ProductContext);
   const { productId } = useParams();
   const productDetailById = (data, productId) => {
     return data.find((p) => p.id === productId);
   };
 
-  const d = productDetailById(products, productId);
+  const d = productDetailById(data, productId);
 
   return (
     <>
