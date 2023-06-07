@@ -5,13 +5,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
+import { ProductContext, ProductProvider } from "./contexts/productContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // Call make Server
 makeServer();
+export { ProductContext };
 root.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <ProductProvider>
+        <App />
+      </ProductProvider>
     </Router>{" "}
   </React.StrictMode>
 );
