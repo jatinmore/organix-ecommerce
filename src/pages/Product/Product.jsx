@@ -1,31 +1,17 @@
-import { useState } from "react";
 import "./Product.css";
-import { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ProductContext } from "../../contexts/productContext";
-
 export const Product = () => {
-  const [data, setData] = useState([]);
-  const getData = async () => {
-    try {
-      const response = await fetch("/api/products");
-      const data = await response.json();
-      setData(data.products);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  // const { productDetailHandler } = useContext(ProductContext);
+  const { data } = useContext(ProductContext);
+
   const navigate = useNavigate();
 
   const productDetailHandler = (id) => {
     navigate(`/productDetail/${id}`);
     console.log(id);
   };
-  useEffect(() => {
-    getData();
-  }, []);
+
   return (
     <>
       <div className="container-product">
@@ -61,31 +47,31 @@ export const Product = () => {
                   <div className="category">
                     <p>
                       <label htmlFor="">
-                        <input type="checkbox" /> Juices
+                        <input type="checkbox" name="Fresh Juices" /> Juices
                       </label>
                     </p>
 
                     <p>
                       <label htmlFor="">
-                        <input type="checkbox" /> Dairy
+                        <input type="checkbox" name="Dairy" /> Dairy
                       </label>
                     </p>
 
                     <p>
                       <label htmlFor="">
-                        <input type="checkbox" /> Fruit
+                        <input type="checkbox" name="Fruit" /> Fruit
                       </label>
                     </p>
 
                     <p>
                       <label htmlFor="">
-                        <input type="checkbox" /> Vegetables
+                        <input type="checkbox" name="Vegetables" /> Vegetables
                       </label>
                     </p>
 
                     <p>
                       <label htmlFor="">
-                        <input type="checkbox" /> Dry Food
+                        <input type="checkbox" name="Dry Food" /> Dry Food
                       </label>
                     </p>
                   </div>
