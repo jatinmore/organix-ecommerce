@@ -1,10 +1,11 @@
 import "./Product.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ProductContext } from "../../contexts/productContext";
+import { CartContext } from "../../contexts/CartContext.";
 export const Product = () => {
   const { data } = useContext(ProductContext);
-
+  const { dispatch } = useContext(CartContext);
   const navigate = useNavigate();
 
   const productDetailHandler = (id) => {
@@ -12,6 +13,9 @@ export const Product = () => {
     console.log(id);
   };
 
+  // const addCartHandler = async (data) => {
+  //   const resp = await fetch("/api/user/cart");
+  // };
   return (
     <>
       <div className="container-product">
@@ -129,7 +133,13 @@ export const Product = () => {
                           </div>
                         </div>
                         <div className="card-btn ">
-                          <button className="btn dark ">Add</button>
+                          <button
+                            className="btn dark"
+                            onClick={() =>
+                              dispatch({ type: "ADD", payload: item })
+                            }>
+                            Add
+                          </button>
                         </div>
                       </div>
                     </div>

@@ -15,7 +15,8 @@ export const products = [
         name: "Apple Juice",
         categoryName: "Fresh Juices",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100)
+        price: Math.floor(Math.random() * 100),
+        qty: 1,
     },
 
     {
@@ -25,7 +26,8 @@ export const products = [
         name: "Orange Juice",
         categoryName: "Fresh Juices",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100)
+        price: Math.floor(Math.random() * 100),
+        qty: 1,
     },
 
     {
@@ -35,7 +37,8 @@ export const products = [
         name: "Watermelon Juice",
         categoryName: "Fresh Juices",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100)
+        price: Math.floor(Math.random() * 100),
+        qty: 1,
     },
 
     {
@@ -45,7 +48,8 @@ export const products = [
         name: "Apple Juice",
         categoryName: "Fresh Juices",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100)
+        price: Math.floor(Math.random() * 100),
+        qty: 1,
     },
 
     //Vegetables
@@ -56,7 +60,8 @@ export const products = [
         name: "Organic Veggies",
         categoryName: "Vegetables",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000)
+        price: Math.floor(Math.random() * 1000),
+        qty: 1,
     },
 
 
@@ -68,7 +73,8 @@ export const products = [
         name: "Tomatoes",
         categoryName: "Vegetables",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100)
+        price: Math.floor(Math.random() * 100),
+        qty: 1,
     },
 
     {
@@ -78,7 +84,8 @@ export const products = [
         name: "Cabbage",
         categoryName: "Vegetables",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100)
+        price: Math.floor(Math.random() * 100),
+        qty: 1,
     },
 
     //Fruit
@@ -89,7 +96,8 @@ export const products = [
         name: "Mango",
         categoryName: "Fruit",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000)
+        price: Math.floor(Math.random() * 1000),
+        qty: 1,
     },
 
     {
@@ -99,7 +107,8 @@ export const products = [
         name: "Strawberries",
         categoryName: "Fruit",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000)
+        price: Math.floor(Math.random() * 1000),
+        qty: 1,
     },
 
     {
@@ -109,7 +118,8 @@ export const products = [
         name: "Avocado",
         categoryName: "Fruit",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000)
+        price: Math.floor(Math.random() * 1000),
+        qty: 1,
     },
 
     //Dry Fruits
@@ -120,7 +130,8 @@ export const products = [
         name: "Walnuts",
         categoryName: "Dry Fruits",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000)
+        price: Math.floor(Math.random() * 1000),
+        qty: 1,
     },
 
     {
@@ -130,7 +141,8 @@ export const products = [
         name: "Cashew",
         categoryName: "Dry Fruits",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000)
+        price: Math.floor(Math.random() * 1000),
+        qty: 1,
     },
 
     //Dairy
@@ -142,7 +154,8 @@ export const products = [
         name: "Organic Milk",
         categoryName: "Dairy",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100)
+        price: Math.floor(Math.random() * 100),
+        qty: 1,
     },
 
     {
@@ -152,7 +165,8 @@ export const products = [
         name: "Organic Ghee",
         categoryName: "Dairy",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000)
+        price: Math.floor(Math.random() * 1000),
+        qty: 1,
     },
 
 

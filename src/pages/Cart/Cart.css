@@ -1,1 +1,49 @@
 @import url('../../styles/style.css');
+.horizontal-img {
+    width: 22rem;
+    height: 10rem;
+    padding: 1rem;
+}
+
+.horizontal-card {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    border: none;
+    border: outset;
+    margin-bottom: 2rem;
+    border-radius: 0.4rem;
+}
+
+.description h5 {
+    font-size: 1.3rem;
+    float: left;
+}
+
+.description p {
+    padding-bottom: 0.5rem;
+    color: var(--green);
+    float: left;
+    font-size: 1.5rem;
+}
+
+.btn-cart {
+    width: 100%;
+}
+
+.btn-card {
+    margin: 1rem;
+    margin-left: 0rem;
+}
+
+.checkout {
+    width: 15rem;
+    padding: 1rem;
+    height: max-content;
+}
+
+.grid-container-column {
+    display: grid;
+    grid-template-columns: auto auto;
+}
