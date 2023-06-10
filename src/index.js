@@ -6,15 +6,19 @@ import reportWebVitals from "./reportWebVitals";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ProductContext, ProductProvider } from "./contexts/productContext";
+import { CartProvider } from "./contexts/CartContext.";
+import { CartContext } from "./contexts/CartContext.";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // Call make Server
 makeServer();
-export { ProductContext };
+export { ProductContext, CartContext };
 root.render(
   <React.StrictMode>
     <Router>
       <ProductProvider>
-        <App />
+        <CartProvider>
+          <App />
+        </CartProvider>
       </ProductProvider>
     </Router>{" "}
   </React.StrictMode>
