@@ -14,9 +14,9 @@ export const Cart = () => {
         <div className="grid-container-column">
           <div className="item1">
             {cartItems.map((item) => {
-              const { id, name, price, rating, img, qty } = item;
+              const { id, name, price, img, qty } = item;
               return (
-                <div className="horizontal-card box-shadow">
+                <div key={id} className="horizontal-card box-shadow">
                   <img className="horizontal-img" alt="cart-img" src={img} />
                   <div className="h-text description">
                     <h5>{name}</h5>
