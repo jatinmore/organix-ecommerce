@@ -1,17 +1,17 @@
 import "./Product.css";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { ProductContext } from "../../contexts/productContext";
+import { useProductContext } from "../../contexts/productContext";
 import { CartContext } from "../../contexts/CartContext.";
 export const Product = () => {
-  const { data } = useContext(ProductContext);
+  const { data } = useProductContext();
   const { dispatch } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const productDetailHandler = (id) => {
-    navigate(`/productDetail/${id}`);
-    console.log(id);
-  };
+  // const productDetailHandler = (id) => {
+  //   navigate(`/productDetail/${id}`);
+  //   console.log(id);
+  // };
 
   // const addCartHandler = async (data) => {
   //   const resp = await fetch("/api/user/cart");
@@ -117,7 +117,7 @@ export const Product = () => {
                     <div key={id} className={id}>
                       <div className="card">
                         <img
-                          onClick={() => productDetailHandler(id)}
+                          // onClick={() => productDetailHandler(id)}
                           className="card-img"
                           src={img}
                           alt="product_image"

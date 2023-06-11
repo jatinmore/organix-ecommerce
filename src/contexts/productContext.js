@@ -1,38 +1,34 @@
-import { createContext, useState, useEffect } from "react";
-
+import { createContext, useEffect, useReducer, useContext } from "react";
+import { reducer } from "../reducer/reducer";
+import { FetchApi } from "../api/FetchApi";
 export const ProductContext = createContext();
+const initialState = {
+  data: [],
+  categoryData: [],
+};
 export const ProductProvider = ({ children }) => {
-  const [data, setData] = useState([]);
-  const getData = async () => {
-    try {
-      const response = await fetch("/api/products");
-      const data = await response.json();
-      setData(data.products);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const [categoryData, setCategoryData] = useState([]);
-  const getCategories = async () => {
-    try {
-      const response = await fetch("/api/categories");
-      const data = await response.json();
-      setCategoryData(data.categories);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const [{ data, categoryData }, dispatch] = useReducer(reducer, initialState);
+  const url = "/api/products";
+  const categoryUrl = "/api/categories";
 
   useEffect(() => {
-    getData();
-    getCategories();
+    FetchApi(url).then((data) => {
+      console.log(data.products);
+      dispatch({ type: "GET_PRODUCTS", payload: data.products });
+    });
+    FetchApi(categoryUrl).then((data) => {
+      console.log(data.categories);
+      dispatch({ type: "GET_CATEGORY", payload: data.categories });
+    });
   }, []);
-
   return (
     <ProductContext.Provider value={{ data, categoryData }}>
       {" "}
       {children}{" "}
     </ProductContext.Provider>
   );
+};
+
+export const useProductContext = () => {
+  return useContext(ProductContext);
 };

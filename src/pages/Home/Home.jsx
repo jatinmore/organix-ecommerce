@@ -1,9 +1,8 @@
 import img2 from "../../assets/OFFER.png";
 import img1 from "../../assets/banner.png";
-import { useContext } from "react";
-import { ProductContext } from "../../contexts/productContext";
+import { useProductContext } from "../../contexts/productContext";
 export const Home = () => {
-  const { categoryData } = useContext(ProductContext);
+  const { categoryData } = useProductContext();
   return (
     <>
       <div className="container">
