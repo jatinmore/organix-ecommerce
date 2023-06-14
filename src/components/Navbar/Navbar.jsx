@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { useAuth } from "../../contexts/AuthContext";
 export const Navbar = () => {
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
   return (
     <nav className="nav grid fixed bg-light box-shadow">
       <p className="brand">Organix</p>
@@ -21,7 +23,11 @@ export const Navbar = () => {
         </NavLink>
 
         <NavLink className="nav-link" to="/login">
-          Login
+          {isLoggedIn ? (
+            <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+          ) : (
+            <button>Login</button>
+          )}
         </NavLink>
 
         {/* <button className="btn-badge">
