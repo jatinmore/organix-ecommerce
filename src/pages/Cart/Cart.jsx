@@ -2,12 +2,13 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext.";
 import "./Cart.css";
 export const Cart = () => {
-  const { state, dispatch } = useContext(CartContext);
+  const { state, dispatch, accessToken } = useContext(CartContext);
   const { total, quantity, cartItems } = state;
   // console.log(cartItems.map((p) => p.name));
-
+  console.log(accessToken);
   // console.log("Cart Items");
   // console.log(state.cartItems);
+
   return (
     <div>
       <div className="container">

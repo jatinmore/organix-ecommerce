@@ -6,6 +6,7 @@ import { useReducer } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+  const accessToken = localStorage.getItem("accessToken");
   const { data } = useContext(ProductContext);
 
   const cart = {
@@ -56,8 +57,9 @@ export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(CartReducer, cart);
 
   return (
-    <CartContext.Provider value={{ cart, state, dispatch }}>
-      {children}
+    <CartContext.Provider value={{ cart, state, dispatch, accessToken }}>
+      {" "}
+      {children}{" "}
     </CartContext.Provider>
   );
 };

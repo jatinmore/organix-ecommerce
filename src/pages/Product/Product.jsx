@@ -117,7 +117,7 @@ export const Product = () => {
                     <div key={id} className={id}>
                       <div className="card">
                         <img
-                          // onClick={() => productDetailHandler(id)}
+                          //onClick={() => productDetailHandler(id)}
                           className="card-img"
                           src={img}
                           alt="product_image"

@@ -8,7 +8,6 @@ import { Login } from "./pages/LoginSignup/LoginSignup";
 import "./App.css";
 import { Navbar } from "./components/Navbar/Navbar";
 import { RequiresAuth } from "./components/RequiresAuth";
-
 function App() {
   return (
     <div className="App">
