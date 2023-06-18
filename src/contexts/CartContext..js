@@ -1,18 +1,13 @@
-import { useContext } from "react";
 import { createContext } from "react";
-import { ProductContext } from "./productContext";
 import { useReducer } from "react";
 import { CartReducer } from "../reducer/CartReducer";
 import axios from "axios";
-import { useState } from "react";
 import { useAuth } from "./AuthContext";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const cart = {
-    total: 0,
-    quantity: 0,
     cartItems: [],
   };
   const { accessToken } = useAuth();
@@ -52,9 +47,56 @@ export const CartProvider = ({ children }) => {
       console.error(error);
     }
   };
+
+  const incQty = async (id) => {
+    try {
+      const res = await axios.post(
+        `/api/user/cart/${id}`,
+        {
+          action: {
+            type: "increment",
+          },
+        },
+        {
+          headers: { authorization: accessToken },
+        }
+      );
+      dispatch({ type: "INC_QTY", payload: res.data.cart });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const decQty = async (id) => {
+    try {
+      const res = await axios.post(
+        `/api/user/cart/${id}`,
+        {
+          action: {
+            type: "decrement",
+          },
+        },
+        {
+          headers: { authorization: accessToken },
+        }
+      );
+      dispatch({ type: "DEC_QTY", payload: res.data.cart });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, state, dispatch, addToCart, getCart, removeCartItem }}>
+      value={{
+        cart,
+        state,
+        dispatch,
+        addToCart,
+        getCart,
+        removeCartItem,
+        incQty,
+        decQty,
+      }}>
       {" "}
       {children}{" "}
     </CartContext.Provider>
