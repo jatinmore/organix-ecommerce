@@ -5,11 +5,7 @@ export const CartReducer = (state, action) => {
             return {
                 ...state,
                 quantity: state.quantity + 1,
-                cartItems: [
-                    //...state.data.filter((p) => p.id === action.payload.id),
-                    ...state.cartItems,
-                    action.payload,
-                ],
+                cartItems: action.payload,
                 total: state.total + action.payload.price,
             };
 
@@ -17,9 +13,7 @@ export const CartReducer = (state, action) => {
             return {
                 ...state,
                 quantity: state.quantity - 1,
-                cartItems: [
-                    ...state.cartItems.filter((p) => p.id !== action.payload.id),
-                ],
+                cartItems: action.payload,
                 total: state.total - action.payload.price,
             };
         case "INC_QTY":

@@ -8,11 +8,13 @@ import { Login } from "./pages/LoginSignup/LoginSignup";
 import "./App.css";
 import { Navbar } from "./components/Navbar/Navbar";
 import { RequiresAuth } from "./components/RequiresAuth";
+import Mockman from "mockman-js";
 function App() {
   return (
     <div className="App">
       <Navbar />
       <Routes>
+        <Route path="/mockman" element={<Mockman />} />
         <Route path="/" element={<Home />} />{" "}
         <Route path="product" element={<Product />} />{" "}
         <Route

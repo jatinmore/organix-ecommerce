@@ -2,18 +2,20 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext.";
 import "./Cart.css";
 export const Cart = () => {
-  const { state, dispatch } = useContext(CartContext);
+  const { state, dispatch, getCart, removeCartItem } = useContext(CartContext);
   const { total, quantity, cartItems } = state;
 
   return (
     <div>
       <div className="container">
+        <button onClick={getCart}>Get Cart</button>
+
         <div className="grid-container-column">
           <div className="item1">
             {cartItems.map((item) => {
-              const { id, name, price, img, qty } = item;
+              const { _id, name, price, img, qty } = item;
               return (
-                <div key={id} className="horizontal-card box-shadow">
+                <div className="horizontal-card box-shadow">
                   <img className="horizontal-img" alt="cart-img" src={img} />
                   <div className="h-text description">
                     <h5>{name}</h5>
@@ -41,8 +43,9 @@ export const Cart = () => {
                     <div className="btn-card">
                       <button
                         className="btn-h btn dark "
-                        onClick={() =>
-                          dispatch({ type: "REMOVE", payload: item })
+                        onClick={
+                          () => removeCartItem(_id)
+                          //dispatch({ type: "REMOVE", payload: item })
                         }>
                         Remove From Cart
                       </button>
