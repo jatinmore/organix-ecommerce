@@ -13,11 +13,9 @@ export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     FetchApi(url).then((data) => {
-      console.log(data.products);
       dispatch({ type: "GET_PRODUCTS", payload: data.products });
     });
     FetchApi(categoryUrl).then((data) => {
-      console.log(data.categories);
       dispatch({ type: "GET_CATEGORY", payload: data.categories });
     });
   }, []);
