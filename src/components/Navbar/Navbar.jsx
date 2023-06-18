@@ -1,4 +1,4 @@
-import { NavLink, Navigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../../contexts/AuthContext";
 export const Navbar = () => {

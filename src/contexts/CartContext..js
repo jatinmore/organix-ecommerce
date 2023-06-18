@@ -2,12 +2,16 @@ import { useContext } from "react";
 import { createContext } from "react";
 import { ProductContext } from "./productContext";
 import { useReducer } from "react";
+import axios from "axios";
+import { useEffect } from "react";
+import { useAuth } from "./AuthContext";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const accessToken = localStorage.getItem("accessToken");
   const { data } = useContext(ProductContext);
+  const { isLoggedIn } = useAuth();
 
   const cart = {
     data,
@@ -57,7 +61,7 @@ export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(CartReducer, cart);
 
   return (
-    <CartContext.Provider value={{ cart, state, dispatch, accessToken }}>
+    <CartContext.Provider value={{ accessToken, cart, state, dispatch }}>
       {" "}
       {children}{" "}
     </CartContext.Provider>
