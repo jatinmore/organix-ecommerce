@@ -1,13 +1,11 @@
 import "./Product.css";
-import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { useProductContext } from "../../contexts/productContext";
 import { CartContext } from "../../contexts/CartContext.";
 import { useAuth } from "../../contexts/AuthContext";
 export const Product = () => {
   const { data } = useProductContext();
-  const { dispatch, addToCart } = useContext(CartContext);
-  const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext);
   const { accessToken } = useAuth();
   // const productDetailHandler = (id) => {
   //   navigate(`/productDetail/${id}`);
@@ -119,7 +117,6 @@ export const Product = () => {
                     <div key={id} className={id}>
                       <div className="card">
                         <img
-                          //onClick={() => productDetailHandler(id)}
                           className="card-img"
                           src={img}
                           alt="product_image"
@@ -137,10 +134,7 @@ export const Product = () => {
                         <div className="card-btn ">
                           <button
                             className="btn dark"
-                            onClick={() =>
-                              // dispatch({ type: "ADD", payload: item })
-                              addToCart(item, accessToken)
-                            }>
+                            onClick={() => addToCart(item, accessToken)}>
                             Add
                           </button>
                         </div>

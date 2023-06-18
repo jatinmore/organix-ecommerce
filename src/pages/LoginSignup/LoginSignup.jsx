@@ -98,7 +98,7 @@ export const Login = () => {
                 setLogin((form) => ({ ...form, password: e.target.value }))
               }
             />
-            <a>Forgot password?</a>
+            <a href="#">Forgot password?</a>
             <button type="submit" className="btn dark">
               Login
             </button>
