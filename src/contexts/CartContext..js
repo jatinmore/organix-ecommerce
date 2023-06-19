@@ -3,10 +3,12 @@ import { useReducer } from "react";
 import { CartReducer } from "../reducer/CartReducer";
 import axios from "axios";
 import { useAuth } from "./AuthContext";
+import { useState } from "react";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+  const [btn, setBtn] = useState(false);
   const cart = {
     cartItems: [],
   };
@@ -22,6 +24,7 @@ export const CartProvider = ({ children }) => {
         }
       );
       dispatch({ type: "ADD", payload: res.data.cart });
+      setBtn(true);
     } catch (error) {
       console.error(error);
     }
@@ -96,6 +99,8 @@ export const CartProvider = ({ children }) => {
         removeCartItem,
         incQty,
         decQty,
+        btn,
+        setBtn,
       }}>
       {" "}
       {children}{" "}

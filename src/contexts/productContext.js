@@ -3,6 +3,7 @@ import { reducer } from "../reducer/reducer";
 import { FetchApi } from "../api/FetchApi";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 export const ProductContext = createContext();
 const initialState = {
   data: [],
@@ -17,6 +18,16 @@ export const ProductProvider = ({ children }) => {
   const navigate = useNavigate();
   const url = "/api/products";
   const categoryUrl = "/api/categories";
+  const [searchInput, setSearchInput] = useState("");
+  const [search, setSearch] = useState(false);
+  const findProduct = (e) => {
+    setSearchInput(e.target.value);
+    setSearch(true);
+    navigate("/product");
+  };
+  const filteredSearch = data.filter(({ name }) =>
+    name.toLowerCase().startsWith(searchInput)
+  );
 
   const getProductById = async (id) => {
     try {
@@ -37,7 +48,17 @@ export const ProductProvider = ({ children }) => {
   }, []);
   return (
     <ProductContext.Provider
-      value={{ data, categoryData, getProductById, productDetail }}>
+      value={{
+        data,
+        categoryData,
+        getProductById,
+        productDetail,
+        findProduct,
+        search,
+        filteredSearch,
+        searchInput,
+        setSearch,
+      }}>
       {" "}
       {children}{" "}
     </ProductContext.Provider>

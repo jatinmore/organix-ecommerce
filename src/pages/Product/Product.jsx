@@ -8,7 +8,8 @@ export const Product = () => {
   const { data } = useProductContext();
   const { addToCart } = useContext(CartContext);
   const { accessToken } = useAuth();
-  const { getProductById } = useProductContext();
+  const { getProductById, search, filteredSearch, searchInput, setSearch } =
+    useProductContext();
   const { addToWishList } = useWishList();
   return (
     <>
@@ -104,47 +105,92 @@ export const Product = () => {
 
           <div className="">
             <div className="container">
-              <div className="grid-container product-list">
-                {data.map((item) => {
-                  const { _id, img, name, rating, price } = item;
-                  return (
-                    <div key={_id} className={_id}>
-                      <div className="card">
-                        <div class="wishlist-badge">
-                          <button
-                            class="btn-round"
-                            onClick={() => addToWishList(item, accessToken)}>
-                            <i class="fas fa-heart wishlist-icon"></i>
-                          </button>
-                        </div>
-                        <img
-                          className="card-img"
-                          src={img}
-                          alt="product_image"
-                          onClick={() => getProductById(_id)}
-                        />
-                        <div className="description">
-                          <h5>{name}</h5>
-                          <br />
-                          <p>{price}.Rs</p>
-                          <br />
-                          <div className="text-left">
-                            {rating}
-                            <i className="fas fa-star"></i>
+              {search && searchInput != "" ? (
+                <div className="grid-container product-list">
+                  {filteredSearch.map((item) => {
+                    const { _id, img, name, rating, price } = item;
+                    return (
+                      <div key={_id} className={_id}>
+                        <div className="card">
+                          <div class="wishlist-badge">
+                            <button
+                              class="btn-round"
+                              onClick={() => addToWishList(item, accessToken)}>
+                              <i class="fas fa-heart wishlist-icon"></i>
+                            </button>
+                          </div>
+                          <img
+                            className="card-img"
+                            src={img}
+                            alt="product_image"
+                            onClick={() => getProductById(_id)}
+                          />
+                          <div className="description">
+                            <h5>{name}</h5>
+                            <br />
+                            <p>{price}.Rs</p>
+                            <br />
+                            <div className="text-left">
+                              {rating}
+                              <i className="fas fa-star"></i>
+                            </div>
+                          </div>
+                          <div className="card-btn ">
+                            <button
+                              className="btn dark"
+                              onClick={() => addToCart(item, accessToken)}>
+                              Add
+                            </button>
                           </div>
                         </div>
-                        <div className="card-btn ">
-                          <button
-                            className="btn dark"
-                            onClick={() => addToCart(item, accessToken)}>
-                            Add
-                          </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="grid-container product-list">
+                  {data.map((item) => {
+                    const { _id, img, name, rating, price } = item;
+                    return (
+                      <div key={_id} className={_id}>
+                        <div className="card">
+                          <div class="wishlist-badge">
+                            <button
+                              class="btn-round"
+                              onClick={() => addToWishList(item, accessToken)}>
+                              <i class="fas fa-heart wishlist-icon"></i>
+                            </button>
+                          </div>
+                          <img
+                            className="card-img"
+                            src={img}
+                            alt="product_image"
+                            onClick={() => getProductById(_id)}
+                          />
+                          <div className="description">
+                            <h5>{name}</h5>
+                            <br />
+                            <p>{price}.Rs</p>
+                            <br />
+                            <div className="text-left">
+                              {rating}
+                              <i className="fas fa-star"></i>
+                            </div>
+                          </div>
+                          <div className="card-btn ">
+                            <button
+                              className="btn dark"
+                              onClick={() => addToCart(item, accessToken)}>
+                              Add
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                  {setSearch(false)}
+                </div>
+              )}
             </div>
           </div>
         </div>
