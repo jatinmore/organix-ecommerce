@@ -9,6 +9,7 @@ import { ProductContext, ProductProvider } from "./contexts/productContext";
 import { CartProvider } from "./contexts/CartContext.";
 import { CartContext } from "./contexts/CartContext.";
 import { AuthProvider } from "./contexts/AuthContext";
+import { WishListProvider } from "./contexts/WishListContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // Call make Server
 makeServer();
@@ -17,11 +18,13 @@ root.render(
   <React.StrictMode>
     <Router>
       <AuthProvider>
-        <ProductProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>{" "}
-        </ProductProvider>{" "}
+        <WishListProvider>
+          <ProductProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>{" "}
+          </ProductProvider>{" "}
+        </WishListProvider>
       </AuthProvider>{" "}
     </Router>{" "}
   </React.StrictMode>

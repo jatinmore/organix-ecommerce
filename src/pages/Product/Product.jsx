@@ -1,14 +1,15 @@
 import "./Product.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useProductContext } from "../../contexts/productContext";
 import { CartContext } from "../../contexts/CartContext.";
 import { useAuth } from "../../contexts/AuthContext";
+import { useWishList } from "../../contexts/WishListContext";
 export const Product = () => {
   const { data } = useProductContext();
   const { addToCart } = useContext(CartContext);
   const { accessToken } = useAuth();
   const { getProductById } = useProductContext();
-
+  const { addToWishList } = useWishList();
   return (
     <>
       <div className="container-product">
@@ -109,6 +110,13 @@ export const Product = () => {
                   return (
                     <div key={_id} className={_id}>
                       <div className="card">
+                        <div class="wishlist-badge">
+                          <button
+                            class="btn-round"
+                            onClick={() => addToWishList(item, accessToken)}>
+                            <i class="fas fa-heart wishlist-icon"></i>
+                          </button>
+                        </div>
                         <img
                           className="card-img"
                           src={img}
