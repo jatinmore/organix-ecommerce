@@ -7,14 +7,7 @@ export const Product = () => {
   const { data } = useProductContext();
   const { addToCart } = useContext(CartContext);
   const { accessToken } = useAuth();
-  // const productDetailHandler = (id) => {
-  //   navigate(`/productDetail/${id}`);
-  //   console.log(id);
-  // };
-
-  // const addCartHandler = async (data) => {
-  //   const resp = await fetch("/api/user/cart");
-  // };
+  const { getProductById } = useProductContext();
 
   return (
     <>
@@ -112,14 +105,15 @@ export const Product = () => {
             <div className="container">
               <div className="grid-container product-list">
                 {data.map((item) => {
-                  const { id, img, name, rating, price } = item;
+                  const { _id, img, name, rating, price } = item;
                   return (
-                    <div key={id} className={id}>
+                    <div key={_id} className={_id}>
                       <div className="card">
                         <img
                           className="card-img"
                           src={img}
                           alt="product_image"
+                          onClick={() => getProductById(_id)}
                         />
                         <div className="description">
                           <h5>{name}</h5>

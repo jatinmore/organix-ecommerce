@@ -1,29 +1,25 @@
-import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { ProductContext } from "../../contexts/productContext";
 export const ProductDetail = () => {
-  const { data } = useContext(ProductContext);
-  const { productId } = useParams();
-  const productDetailById = (data, productId) => {
-    return data.find((p) => p.id === productId);
-  };
-
-  const d = productDetailById(data, productId);
+  const { productDetail } = useContext(ProductContext);
 
   return (
     <>
       <div className="container">
-        ProductDetail for id {productId}
-        <div key={d.id} className={d.id}>
+        <div key={productDetail._id} className={productDetail._id}>
           <div className="card">
-            <img className="card-img" src={d.img} alt="product_image" />
+            <img
+              className="card-img"
+              src={productDetail.img}
+              alt="product_image"
+            />
             <div className="description">
-              <h5>{d.name}</h5>
+              <h5>{productDetail.name}</h5>
               <br />
-              <p>{d.price}.Rs</p>
+              <p>{productDetail.price}.Rs</p>
               <br />
               <div className="text-left">
-                {d.rating}
+                {productDetail.rating}
                 <i className="fas fa-star"></i>
               </div>
             </div>
