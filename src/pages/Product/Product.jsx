@@ -1,5 +1,5 @@
 import "./Product.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useProductContext } from "../../contexts/productContext";
 import { CartContext } from "../../contexts/CartContext.";
 import { useAuth } from "../../contexts/AuthContext";
@@ -105,7 +105,7 @@ export const Product = () => {
 
           <div className="">
             <div className="container">
-              {search && searchInput != "" ? (
+              {search && searchInput !== "" ? (
                 <div className="grid-container product-list">
                   {filteredSearch.map((item) => {
                     const { _id, img, name, rating, price } = item;
