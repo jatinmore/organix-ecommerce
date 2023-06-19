@@ -26,7 +26,7 @@ export const ProductProvider = ({ children }) => {
     navigate("/product");
   };
   const filteredSearch = data.filter(({ name }) =>
-    name.toLowerCase().startsWith(searchInput)
+    name.toLowerCase().startsWith(searchInput.toLowerCase())
   );
 
   const getProductById = async (id) => {
