@@ -23,8 +23,9 @@ export const Login = () => {
   };
 
   const testLogin = (e) => {
-    //e.preventDefault();
+    e.preventDefault();
     loginHandler("abc", "1234");
+    setLogin({ email: "", password: "" });
   };
   const submitSignup = (event) => {
     event.preventDefault();
