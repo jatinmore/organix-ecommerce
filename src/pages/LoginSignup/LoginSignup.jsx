@@ -3,20 +3,32 @@ import "./LoginSIgnup.css";
 import { useAuth } from "../../contexts/AuthContext";
 export const Login = () => {
   const [isContainerActive, setIsContainerActive] = useState(false);
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+    firstname: "",
+    lastname: "",
+  });
   const signUpButton = () => {
     setIsContainerActive(true);
   };
   const signInButton = () => {
     setIsContainerActive(false);
   };
-  const { loginHandler, setLogin, signUpHandler } = useAuth();
+  const { loginHandler, signUpHandler } = useAuth();
   const submitHandler = (event) => {
     event.preventDefault();
-    loginHandler();
+    loginHandler(login.email, login.password);
+    setLogin({ email: "", password: "" });
+  };
+
+  const testLogin = (e) => {
+    e.preventDefault();
+    loginHandler("abc", "1234");
   };
   const submitSignup = (event) => {
     event.preventDefault();
-    signUpHandler();
+    signUpHandler(login.firstname, login.lastname, login.email, login.password);
   };
   return (
     <div className="body">
@@ -84,6 +96,7 @@ export const Login = () => {
               type="text"
               className="input-field outline"
               placeholder="Enter Email"
+              value={login.email}
               required
               onChange={(e) =>
                 setLogin((form) => ({ ...form, email: e.target.value }))
@@ -93,6 +106,7 @@ export const Login = () => {
               type="password"
               className="input-field outline"
               placeholder="Enter Password"
+              value={login.password}
               required
               onChange={(e) =>
                 setLogin((form) => ({ ...form, password: e.target.value }))
@@ -101,6 +115,9 @@ export const Login = () => {
             <span>Forgot password?</span>
             <button type="submit" className="btn dark">
               Login
+            </button>
+            <button onClick={testLogin} className="btn dark">
+              Login With Test Creds
             </button>
           </form>
         </div>
