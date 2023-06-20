@@ -99,9 +99,7 @@ export const Login = () => {
               placeholder="Enter Email"
               value={login.email}
               required
-              onChange={(e) =>
-                setLogin((form) => ({ ...form, email: e.target.value }))
-              }
+              onChange={(e) => setLogin({ email: e.target.value })}
             />
             <input
               type="password"
