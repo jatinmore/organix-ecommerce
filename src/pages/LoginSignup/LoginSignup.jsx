@@ -117,7 +117,7 @@ export const Login = () => {
             <button type="submit" className="btn dark">
               Login
             </button>
-            <button onClick={testLogin} className="btn dark">
+            <button onClick={testLogin} type="submit" className="btn dark">
               Login With Test Creds
             </button>
           </form>
