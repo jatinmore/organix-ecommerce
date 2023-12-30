@@ -1,11 +1,19 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext.";
+import {useWishList} from "../../contexts/WishListContext"
+import {useAuth} from "../../contexts/AuthContext";
 import "./Cart.css";
 export const Cart = () => {
-  const { state, removeCartItem, incQty, decQty } = useContext(CartContext);
+  const { state, removeCartItem, incQty, decQty,dispatch} = useContext(CartContext);
   const { cartItems } = state;
-  const totalPrice = cartItems.reduce((acc, curr) => (acc += curr.price), 0);
-
+  const {addToWishList} = useWishList();
+  const { accessToken } = useAuth();
+  const moveToWishList = (item, accessToken) => {
+    if (item._id !== "" || item._id !== null) {
+        addToWishList(item,accessToken) 
+        removeCartItem(item._id)
+    }
+}
   return (
     <div>
       {cartItems.length > 0 ? (
@@ -26,13 +34,13 @@ export const Cart = () => {
                         Quantity
                         <button
                           className="btn btn-count"
-                          onClick={() => incQty(_id)}>
+                          onClick={() => dispatch({type:"INC_QTY",payload:item})}>
                           +
                         </button>
                         {qty}
                         <button
                           className="btn btn-count"
-                          onClick={() => decQty(_id)}>
+                          onClick={() => dispatch({type:"DEC_QTY",payload:item})}>
                           -
                         </button>
                       </label>
@@ -42,7 +50,7 @@ export const Cart = () => {
                           onClick={() => removeCartItem(_id)}>
                           Remove From Cart
                         </button>
-                        <button className="btn-h btn dark ">
+                        <button className="btn-h btn dark " onClick={()=>moveToWishList(item,accessToken)}>
                           Move to Whishlist
                         </button>
                       </div>
@@ -67,10 +75,10 @@ export const Cart = () => {
                       <span>Total</span>
                     </div>
                     <div className="price-item2">
-                      <span>{totalPrice}.Rs</span>
+                      <span>{}.Rs</span>
                       <br />
                       <hr />
-                      <span>{totalPrice}.Rs</span>
+                      <span>{}.Rs</span>
                     </div>
                   </div>
                   <br />

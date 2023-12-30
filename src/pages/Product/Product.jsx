@@ -15,7 +15,7 @@ export const Product = () => {
   dispatch} = useProductContext();
   const { addToCart,state } = useContext(CartContext);
   const { accessToken } = useAuth();
-  const { addToWishList } = useWishList();
+  const { addToWishList,wishList,removeFromWishList } = useWishList();
 
   
   
@@ -140,13 +140,22 @@ export const Product = () => {
                     return (
                       <div key={_id} className={_id}>
                         <div className="card">
+                        {wishList.some((product)=>product._id === _id)?
                           <div class="wishlist-badge">
+                            <button
+                              class="btn-round"
+                              onClick={() => removeFromWishList(_id)}>
+                              <i style={{color:"red"}} class="fas fa-heart wishlist-icon"></i>
+                            </button>
+                        </div>:
+                        <div class="wishlist-badge">
                             <button
                               class="btn-round"
                               onClick={() => addToWishList(item, accessToken)}>
                               <i class="fas fa-heart wishlist-icon"></i>
                             </button>
-                          </div>
+                          </div>}
+                       
                           <img
                             className="card-img"
                             src={img}

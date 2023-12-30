@@ -14,17 +14,35 @@ export const CartReducer = (state, action) => {
                 cartItems: action.payload,
             };
         case "INC_QTY":
+            console.log(state.cartItems)
             return {
 
                 ...state,
-                cartItems: action.payload,
+                cartItems: state.cartItems.map((item) => {
+                    if (action.payload._id === item._id) {
+                        return {
+                            ...item,
+                            qty: item.qty + 1
+                        }
+                    }
+                    return item
+                })
             };
 
         case "DEC_QTY":
             return {
                 ...state,
-                cartItems: action.payload,
+                cartItems: state.cartItems.map((item) => {
+                    if (action.payload._id === item._id) {
+                        return {
+                            ...item,
+                            qty: item.qty - 1
+                        }
+                    }
+                    return item
+                }),
             };
+
         default:
             return state;
     }
