@@ -14,7 +14,7 @@ export const Home = () => {
     FetchApi(categoryUrl).then((data) => {
         dispatch({ type: "GET_CATEGORY", payload: data.categories });
     });
-},);
+},[dispatch]);
 console.log(data)
   return (
     <>

@@ -11,8 +11,9 @@ export const Product = () => {
     rating,
     category,
     getProductById,
+    navigate,
   dispatch} = useProductContext();
-  const { addToCart } = useContext(CartContext);
+  const { addToCart,state } = useContext(CartContext);
   const { accessToken } = useAuth();
   const { addToWishList } = useWishList();
 
@@ -162,18 +163,25 @@ export const Product = () => {
                               <i className="fas fa-star"></i>
                             </div>
                           </div>
+
+                          {state.cartItems.some((d)=> d._id === _id)?<div>
+                            <div className="card-btn ">
+                            <button
+                              className="btn dark"
+                              onClick={() => navigate("/cart")}>
+                              Go To Cart
+                            </button>
+                          </div>
+                          </div>:<div>
                           <div className="card-btn ">
                             <button
                               className="btn dark"
                               onClick={() => addToCart(item, accessToken)}>
                               Add
-                            </button>:
-                            <button
-                              className="btn dark"
-                              onClick={() => addToCart(item, accessToken)}>
-                              Go To Cart
                             </button>
                           </div>
+                            </div>}
+                     
                         </div>
                       </div>
                     );
