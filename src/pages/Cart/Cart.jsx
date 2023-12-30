@@ -4,7 +4,7 @@ import {useWishList} from "../../contexts/WishListContext"
 import {useAuth} from "../../contexts/AuthContext";
 import "./Cart.css";
 export const Cart = () => {
-  const { state, removeCartItem, incQty, decQty,dispatch} = useContext(CartContext);
+  const { state, removeCartItem,dispatch} = useContext(CartContext);
   const { cartItems } = state;
   const {addToWishList} = useWishList();
   const { accessToken } = useAuth();
