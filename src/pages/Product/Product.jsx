@@ -4,7 +4,6 @@ import { useProductContext } from "../../contexts/productContext";
 import { CartContext } from "../../contexts/CartContext.";
 import { useAuth } from "../../contexts/AuthContext";
 import { useWishList } from "../../contexts/WishListContext";
-import { useState } from "react";
 export const Product = () => {
   const {
     filteredData,
