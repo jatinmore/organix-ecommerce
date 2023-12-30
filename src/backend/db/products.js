@@ -99,17 +99,6 @@ export const products = [
 
     {
 
-        _id: "item8",
-        img: "https://img.freepik.com/premium-photo/ripe-strawberries-with-leaves-isolated-white_80510-607.jpg?w=900",
-        name: "Strawberries",
-        categoryName: "Fruit",
-        rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000),
-        qty: 1,
-    },
-
-    {
-
         _id: "item9",
         img: "https://img.freepik.com/premium-photo/ripe-sliced-avocado-isolated-white_80510-1236.jpg?w=826",
         name: "Avocado",
@@ -166,6 +155,17 @@ export const products = [
         qty: 1,
     },
 
+
+    {
+
+        _id: "item14",
+        img: "https://img.freepik.com/premium-photo/ripe-strawberries-with-leaves-isolated-white_80510-607.jpg?w=900",
+        name: "Strawberries",
+        categoryName: "Fruit",
+        rating: Math.floor(Math.random() * 5 + 1),
+        price: Math.floor(Math.random() * 1000),
+        qty: 1,
+    },
 
 
 ];

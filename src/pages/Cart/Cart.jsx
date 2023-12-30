@@ -5,6 +5,7 @@ export const Cart = () => {
   const { state, removeCartItem, incQty, decQty } = useContext(CartContext);
   const { cartItems } = state;
   const totalPrice = cartItems.reduce((acc, curr) => (acc += curr.price), 0);
+
   return (
     <div>
       {cartItems.length > 0 ? (

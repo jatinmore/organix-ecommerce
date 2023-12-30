@@ -4,7 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useProductContext } from "../../contexts/productContext";
 export const Navbar = () => {
   const { isLoggedIn, setIsLoggedIn } = useAuth();
-  const { findProduct } = useProductContext();
+  const { findProduct,searchQuery } = useProductContext();
   const logoutHandler = () => {
     setIsLoggedIn(false);
     localStorage.clear();
@@ -27,7 +27,7 @@ export const Navbar = () => {
         <NavLink className="nav-link" to="/wishlist">
           Wishlist
         </NavLink>
-        <input type="text" onChange={(e) => findProduct(e)} />
+        <input type="text" onChange={(e) => findProduct(e)} value={searchQuery} />
 
         <NavLink className="nav-link" to="/login">
           {isLoggedIn ? (
