@@ -1,0 +1,23 @@
+@import url('../../styles/style.css');
+.order-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80rem;
+}
+
+.checkout-box {
+    display: flex;
+}
+
+.box1,
+.box2,
+.box3 {
+    flex-direction: row;
+    padding: 1rem;
+}
+
+.address-data {
+    margin: 0.5rem;
+    line-height: 2rem;
+}

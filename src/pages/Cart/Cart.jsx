@@ -2,12 +2,13 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext.";
 import {useWishList} from "../../contexts/WishListContext"
 import {useAuth} from "../../contexts/AuthContext";
+import {useProductContext} from "../../contexts/productContext";
 import "./Cart.css";
 export const Cart = () => {
-  const { state, removeCartItem,dispatch} = useContext(CartContext);
-  const { cartItems } = state;
+  const { cartItems, removeCartItem,dispatch,total} = useContext(CartContext);
   const {addToWishList} = useWishList();
   const { accessToken } = useAuth();
+  const {navigate} = useProductContext();
   const moveToWishList = (item, accessToken) => {
     if (item._id !== "" || item._id !== null) {
         addToWishList(item,accessToken) 
@@ -23,7 +24,7 @@ export const Cart = () => {
               {cartItems.map((item) => {
                 const { _id, name, price, img, qty } = item;
                 return (
-                  <div className="horizontal-card box-shadow">
+                  <div className="horizontal-card box-shadow" key={_id}>
                     <img className="horizontal-img" alt="cart-img" src={img} />
                     <div className="h-text description">
                       <h5>{name}</h5>
@@ -72,17 +73,24 @@ export const Cart = () => {
                       <span>Price({cartItems.length})</span>
                       <br />
                       <hr />
+                      <span>Delivery Charges</span>
+                      <br />
+                      <hr />
                       <span>Total</span>
                     </div>
                     <div className="price-item2">
-                      <span>{}.Rs</span>
+                      <span>{total}.Rs</span>
                       <br />
                       <hr />
-                      <span>{}.Rs</span>
+                      <span>FREE</span>
+                      <br />
+                      <br/>
+                      <hr />
+                      <span>{total}.Rs</span>
                     </div>
                   </div>
                   <br />
-                  <button className="btn-cart btn dark ">Place Order</button>
+                  <button className="btn-cart btn dark " onClick={()=> navigate("/checkout")}>Place Order</button>
                 </div>
               </div>
             </div>

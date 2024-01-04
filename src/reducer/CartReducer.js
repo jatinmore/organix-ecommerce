@@ -1,7 +1,7 @@
 export const CartReducer = (state, action) => {
     switch (action.type) {
         case "ADD":
-            console.log(state)
+            console.log(state.cartItems)
             return {
                 ...state,
                 cartItems: action.payload,
@@ -14,7 +14,6 @@ export const CartReducer = (state, action) => {
                 cartItems: action.payload,
             };
         case "INC_QTY":
-            console.log(state.cartItems)
             return {
 
                 ...state,
@@ -26,7 +25,7 @@ export const CartReducer = (state, action) => {
                         }
                     }
                     return item
-                })
+                }),
             };
 
         case "DEC_QTY":

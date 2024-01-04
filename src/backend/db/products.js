@@ -12,7 +12,7 @@ export const products = [
         name: "Apple Juice",
         categoryName: "Fresh Juices",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100),
+        price: 35,
         qty: 1,
     },
 
@@ -23,7 +23,7 @@ export const products = [
         name: "Orange Juice",
         categoryName: "Fresh Juices",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100),
+        price: 45,
         qty: 1,
     },
 
@@ -34,7 +34,7 @@ export const products = [
         name: "Watermelon Juice",
         categoryName: "Fresh Juices",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100),
+        price: 20,
         qty: 1,
     },
 
@@ -45,7 +45,7 @@ export const products = [
         name: "Apple Juice",
         categoryName: "Fresh Juices",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100),
+        price: 15,
         qty: 1,
     },
 
@@ -57,7 +57,7 @@ export const products = [
         name: "Organic Veggies",
         categoryName: "Vegetables",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000),
+        price: 150,
         qty: 1,
     },
 
@@ -70,7 +70,7 @@ export const products = [
         name: "Tomatoes",
         categoryName: "Vegetables",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100),
+        price: 30,
         qty: 1,
     },
 
@@ -81,7 +81,7 @@ export const products = [
         name: "Cabbage",
         categoryName: "Vegetables",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100),
+        price: 40,
         qty: 1,
     },
 
@@ -93,7 +93,7 @@ export const products = [
         name: "Mango",
         categoryName: "Fruit",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000),
+        price: 200,
         qty: 1,
     },
 
@@ -104,7 +104,7 @@ export const products = [
         name: "Avocado",
         categoryName: "Fruit",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000),
+        price: 300,
         qty: 1,
     },
 
@@ -116,7 +116,7 @@ export const products = [
         name: "Walnuts",
         categoryName: "Dry Fruits",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000),
+        price: 450,
         qty: 1,
     },
 
@@ -127,7 +127,7 @@ export const products = [
         name: "Cashew",
         categoryName: "Dry Fruits",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000),
+        price: 250,
         qty: 1,
     },
 
@@ -140,7 +140,7 @@ export const products = [
         name: "Organic Milk",
         categoryName: "Dairy",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 100),
+        price: 75,
         qty: 1,
     },
 
@@ -151,7 +151,7 @@ export const products = [
         name: "Organic Ghee",
         categoryName: "Dairy",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000),
+        price: 80,
         qty: 1,
     },
 
@@ -163,7 +163,7 @@ export const products = [
         name: "Strawberries",
         categoryName: "Fruit",
         rating: Math.floor(Math.random() * 5 + 1),
-        price: Math.floor(Math.random() * 1000),
+        price: 50,
         qty: 1,
     },
 

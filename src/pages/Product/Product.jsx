@@ -13,7 +13,7 @@ export const Product = () => {
     getProductById,
     navigate,
   dispatch} = useProductContext();
-  const { addToCart,state } = useContext(CartContext);
+  const { addToCart,cartItems } = useContext(CartContext);
   const { accessToken } = useAuth();
   const { addToWishList,wishList,removeFromWishList } = useWishList();
 
@@ -173,7 +173,7 @@ export const Product = () => {
                             </div>
                           </div>
 
-                          {state.cartItems.some((d)=> d._id === _id)?<div>
+                          {cartItems.some((d)=> d._id === _id)?<div>
                             <div className="card-btn ">
                             <button
                               className="btn dark"

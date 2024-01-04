@@ -22,7 +22,6 @@ export const Wishlist = () => {
                   </div>
                 </div>
                 <div className="card-btn ">
-                  <button className="btn dark ">Add</button>
                   <button
                     className="btn dark "
                     onClick={() => removeFromWishList(_id)}>
