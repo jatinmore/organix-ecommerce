@@ -2,12 +2,15 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../../contexts/AuthContext";
 import { useProductContext } from "../../contexts/productContext";
+import { toast } from 'react-toastify';
+
 export const Navbar = () => {
   const { isLoggedIn, setIsLoggedIn } = useAuth();
   const { findProduct,searchQuery } = useProductContext();
   const logoutHandler = () => {
     setIsLoggedIn(false);
     localStorage.clear();
+    toast.success("Logged Out");    
   };
   return (
     <nav className="nav grid fixed bg-light box-shadow">

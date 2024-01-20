@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import "./Checkout.css"
 import { CartContext } from "../../contexts/CartContext."
+import { toast } from "react-toastify";
 
 export const Checkout = () => {
     const {cartItems,total} = useContext(CartContext);
@@ -43,7 +44,7 @@ export const Checkout = () => {
                         </div>
 
                     </div>
-                    <button className="btn dark">Make Payment</button>
+                    <button className="btn dark" onClick={()=> toast.success("Order Placed Successfully")}>Make Payment</button>
                 </div>
             </div>
 

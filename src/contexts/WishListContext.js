@@ -3,6 +3,7 @@ import { createContext } from "react";
 import { WishListReducer } from "../reducer/WishListReducer";
 import { useAuth } from "./AuthContext";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const WishListContext = createContext();
 export const WishListProvider = ({ children }) => {
@@ -23,6 +24,7 @@ export const WishListProvider = ({ children }) => {
             );
             dispatch({ type: "ADD_TO_WISHLIST", payload: res.data.wishlist });
             console.log(res);
+            toast.success("Item Added to Wishlist");
         } catch (error) {
             console.error(error);
         }
@@ -33,6 +35,7 @@ export const WishListProvider = ({ children }) => {
                 headers: { authorization: accessToken },
             });
             dispatch({ type: "REMOVE_FROM_WISHLIST", payload: res.data.wishlist });
+            toast.success("Removed From Wishlist");
         } catch (error) {
             console.error(error);
         }

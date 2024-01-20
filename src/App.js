@@ -11,6 +11,8 @@ import { RequiresAuth } from "./components/RequiresAuth";
 import Mockman from "mockman-js";
 import { Checkout } from "./pages/Checkout/Checkout";
 import { User } from "./pages/User/User";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
     return ( <
@@ -60,6 +62,8 @@ function App() {
         element = { < User / > }
         /> < /
         Routes > { " " } <
+        ToastContainer / >
+        <
         /div>
     );
 }

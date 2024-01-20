@@ -4,6 +4,7 @@ import { CartReducer } from "../reducer/CartReducer";
 import axios from "axios";
 import { useAuth } from "./AuthContext";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 
 export const CartContext = createContext();
@@ -25,6 +26,7 @@ export const CartProvider = ({ children }) => {
             );
             dispatch({ type: "ADD", payload: res.data.cart });
             setBtn(true);
+            toast.success("Added to Cart");
         } catch (error) {
             console.error(error);
         }
@@ -46,6 +48,7 @@ export const CartProvider = ({ children }) => {
             });
             console.log(res);
             dispatch({ type: "REMOVE", payload: res.data.cart });
+            toast.success("Item Removed From Cart");
         } catch (error) {
             console.error(error);
         }

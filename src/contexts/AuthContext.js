@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useContext } from "react";
 import { createContext } from "react";
+import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
@@ -20,6 +21,10 @@ export const AuthProvider = ({ children }) => {
             const { encodedToken } = await response.data;
             console.log(await response);
             localStorage.setItem("accessToken", encodedToken);
+            toast.success("Login Successful !!", {
+                position: "top-center",
+                autoClose: 2000
+            })
         } catch (error) {
             console.error(error);
         }
@@ -36,6 +41,7 @@ export const AuthProvider = ({ children }) => {
             });
             console.log(response);
             localStorage.setItem("accessToken", response.data.encodedToken);
+            toast.success("Account Created");
         } catch (error) {
             console.error(error);
         }
