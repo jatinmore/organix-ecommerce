@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { FetchApi } from "../../api/FetchApi";
 import { useProductContext } from "../../contexts/productContext";
 export const Home = () => {
-  const { categoryData,dispatch,navigate,data } = useProductContext();
+  const { categoryData,dispatch,navigate } = useProductContext();
   const url = "/api/products";
   const categoryUrl = "/api/categories";
   useEffect(() => {

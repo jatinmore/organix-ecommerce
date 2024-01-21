@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext.";
 import {useWishList} from "../../contexts/WishListContext"
 import {useAuth} from "../../contexts/AuthContext";
