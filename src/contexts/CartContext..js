@@ -46,7 +46,6 @@ export const CartProvider = ({ children }) => {
             const res = await axios.delete(`/api/user/cart/${id}`, {
                 headers: { authorization: accessToken },
             });
-            console.log(res);
             dispatch({ type: "REMOVE", payload: res.data.cart });
             toast.success("Item Removed From Cart");
         } catch (error) {

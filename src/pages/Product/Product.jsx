@@ -108,17 +108,16 @@ export const Product = () => {
                 <li className="aside-item">
                   <div className="slider">
                     <p>Price</p>
-                    <input type="range" className="price-range" />
                     <p>
                       <label>
-                        <input type="radio" name="sort" id="hl" checked={sortHighToLow===true} 
+                        <input type="radio" name="sort" value={true} id="hl" checked={sortHighToLow===true} 
                         onChange={(e)=> dispatch({type:"SORT_PRICE",payload:true})} />
                         High to Low
                       </label>
                     </p>
                     <p>
                       <label>
-                        <input type="radio" name="sort" id="hl" checked={sortHighToLow ===false}
+                        <input type="radio" name="sort" value={false} id="hl" checked={sortHighToLow ===false}
                         onChange={(e)=>dispatch({type:"SORT_PRICE",payload:false})} />
                         Low to High 
                       </label>
@@ -141,18 +140,18 @@ export const Product = () => {
                       <div key={_id} className={_id}>
                         <div className="card">
                         {wishList.some((product)=>product._id === _id)?
-                          <div class="wishlist-badge">
+                          <div className="wishlist-badge">
                             <button
-                              class="btn-round"
+                              className="btn-round"
                               onClick={() => removeFromWishList(_id)}>
-                              <i style={{color:"red"}} class="fas fa-heart wishlist-icon"></i>
+                              <i style={{color:"red"}} className="fas fa-heart wishlist-icon"></i>
                             </button>
                         </div>:
-                        <div class="wishlist-badge">
+                        <div className="wishlist-badge">
                             <button
-                              class="btn-round"
+                              className="btn-round"
                               onClick={() => addToWishList(item, accessToken)}>
-                              <i class="fas fa-heart wishlist-icon"></i>
+                              <i className="fas fa-heart wishlist-icon"></i>
                             </button>
                           </div>}
                        

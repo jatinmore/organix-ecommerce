@@ -145,3 +145,15 @@
     padding: 0;
     margin: auto;
 }
+
+.empty-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-empty {
+    height: 60vh;
+    width: 30%;
+}

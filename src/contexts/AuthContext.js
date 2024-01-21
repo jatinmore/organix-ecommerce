@@ -19,14 +19,13 @@ export const AuthProvider = ({ children }) => {
                 password: password,
             });
             const { encodedToken } = await response.data;
-            console.log(await response);
             localStorage.setItem("accessToken", encodedToken);
-            toast.success("Login Successful !!", {
-                position: "top-center",
-                autoClose: 2000
+            toast.success(`Login Successful, Hi ${response.data.foundUser.firstName}`, {
+                autoClose: 1000
             })
         } catch (error) {
             console.error(error);
+            toast.error("Something Went Wrong");
         }
     };
     const accessToken = localStorage.getItem("accessToken");
@@ -39,11 +38,13 @@ export const AuthProvider = ({ children }) => {
                 email: email,
                 password: password,
             });
-            console.log(response);
             localStorage.setItem("accessToken", response.data.encodedToken);
-            toast.success("Account Created");
+            toast.success(`Welcome to Organix ${response.data.foundUser.firstName}`, {
+                autoClose: 1000
+            });
         } catch (error) {
             console.error(error);
+            toast.error("Something Went Wrong");
         }
     };
     return ( <

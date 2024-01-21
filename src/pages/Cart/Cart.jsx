@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext.";
 import {useWishList} from "../../contexts/WishListContext"
 import {useAuth} from "../../contexts/AuthContext";
 import {useProductContext} from "../../contexts/productContext";
+import emptyCart from "../../assets/empty_cart.png"
 import "./Cart.css";
 export const Cart = () => {
   const { cartItems, removeCartItem,dispatch,total} = useContext(CartContext);
@@ -14,6 +15,15 @@ export const Cart = () => {
         addToWishList(item,accessToken) 
         removeCartItem(item._id)
     }
+}
+
+const decQty = (item) => {
+ 
+  if(item.qty > 1)
+  {
+    dispatch({type:"DEC_QTY",payload:item});
+
+  }
 }
   return (
     <div>
@@ -41,7 +51,8 @@ export const Cart = () => {
                         {qty}
                         <button
                           className="btn btn-count"
-                          onClick={() => dispatch({type:"DEC_QTY",payload:item})}>
+                          onClick={()=>decQty(item)}
+                          >
                           -
                         </button>
                       </label>
@@ -98,7 +109,10 @@ export const Cart = () => {
         </div>
       ) : (
         <div className="container">
+          <div className="empty-container">
+          <img src={emptyCart} className="img-empty" alt="" />
           <h5>Cart is Empty .. please add items in cart</h5>
+          </div>
         </div>
       )}
     </div>

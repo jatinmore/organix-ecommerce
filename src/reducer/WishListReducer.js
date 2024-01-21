@@ -1,7 +1,6 @@
 export const WishListReducer = (state, action) => {
     switch (action.type) {
         case "ADD_TO_WISHLIST":
-            console.log(state)
             return {
                 ...state,
                 wishList: action.payload

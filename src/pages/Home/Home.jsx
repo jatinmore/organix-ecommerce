@@ -15,7 +15,7 @@ export const Home = () => {
         dispatch({ type: "GET_CATEGORY", payload: data.categories });
     });
 },[dispatch]);
-console.log(data)
+
   return (
     <>
       <div className="container">

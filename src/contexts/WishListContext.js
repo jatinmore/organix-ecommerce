@@ -23,7 +23,6 @@ export const WishListProvider = ({ children }) => {
                 }
             );
             dispatch({ type: "ADD_TO_WISHLIST", payload: res.data.wishlist });
-            console.log(res);
             toast.success("Item Added to Wishlist");
         } catch (error) {
             console.error(error);

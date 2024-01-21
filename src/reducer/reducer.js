@@ -24,7 +24,6 @@ export const reducer = (state, action) => {
             }
 
         case "FILTER_CATEGORY":
-            console.log("called", action.payload)
             return {
                 ...state,
                 category: action.payload,
