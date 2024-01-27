@@ -16,9 +16,7 @@ export const Product = () => {
   const { addToCart,cartItems } = useContext(CartContext);
   const { accessToken } = useAuth();
   const { addToWishList,wishList,removeFromWishList } = useWishList();
-
-  
-  
+   
   return (
     <>
       <div className="container-product">
@@ -110,14 +108,14 @@ export const Product = () => {
                     <p>Price</p>
                     <p>
                       <label>
-                        <input type="radio" name="sort" value={true} id="hl" checked={sortHighToLow===true} 
+                        <input type="radio" name="sort" id="hl" checked={sortHighToLow===true} 
                         onChange={(e)=> dispatch({type:"SORT_PRICE",payload:true})} />
                         High to Low
                       </label>
                     </p>
                     <p>
                       <label>
-                        <input type="radio" name="sort" value={false} id="hl" checked={sortHighToLow ===false}
+                        <input type="radio" name="sort" id="hl" checked={sortHighToLow ===false}
                         onChange={(e)=>dispatch({type:"SORT_PRICE",payload:false})} />
                         Low to High 
                       </label>

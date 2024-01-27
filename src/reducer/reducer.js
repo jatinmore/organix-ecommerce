@@ -20,6 +20,7 @@ export const reducer = (state, action) => {
         case "SORT_PRICE":
             return {
                 ...state,
+                sortHighToLow: action.payload,
                 filteredData: action.payload === true ? state.data.sort((a, b) => b.price - a.price) : state.data.sort((a, b) => a.price - b.price)
             }
 
