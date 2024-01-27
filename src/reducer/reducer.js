@@ -21,7 +21,7 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 sortHighToLow: action.payload,
-                filteredData: action.payload === true ? state.data.sort((a, b) => b.price - a.price) : state.data.sort((a, b) => a.price - b.price)
+                filteredData: action.payload === true ? state.filteredData.sort((a, b) => b.price - a.price) : state.filteredData.sort((a, b) => a.price - b.price)
             }
 
         case "FILTER_CATEGORY":
