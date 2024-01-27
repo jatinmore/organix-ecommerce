@@ -34,7 +34,7 @@ export const WishListProvider = ({ children }) => {
                 headers: { authorization: accessToken },
             });
             dispatch({ type: "REMOVE_FROM_WISHLIST", payload: res.data.wishlist });
-            toast.success("Removed From Wishlist");
+            toast.error("Removed From Wishlist");
         } catch (error) {
             console.error(error);
         }

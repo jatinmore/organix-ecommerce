@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
                 headers: { authorization: accessToken },
             });
             dispatch({ type: "REMOVE", payload: res.data.cart });
-            toast.success("Item Removed From Cart");
+            toast.error("Item Removed From Cart");
         } catch (error) {
             console.error(error);
         }

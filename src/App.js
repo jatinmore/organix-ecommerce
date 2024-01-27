@@ -62,9 +62,9 @@ function App() {
         element = { < User / > }
         /> < /
         Routes > { " " } <
-        ToastContainer / >
-        <
-        /div>
+        ToastContainer autoClose = { 500 }
+        / > < /
+        div >
     );
 }
 
