@@ -38,16 +38,6 @@ export const products = [
         qty: 1,
     },
 
-    {
-
-        _id: "item4",
-        img: "https://img.freepik.com/free-photo/side-view-apple-juice-with-red-apples-white-wooden-table_176474-1044.jpg?w=996&t=st=1685282176~exp=1685282776~hmac=3bca45e2a0882e60a6b36357c514a96d402b76a153d1144dd1eeeb1930ebd88e",
-        name: "Apple Juice",
-        categoryName: "Fresh Juices",
-        rating: Math.floor(Math.random() * 5 + 1),
-        price: 15,
-        qty: 1,
-    },
 
     //Vegetables
     {
