@@ -33,14 +33,14 @@ export const Product = () => {
                   <div className="rating">
                     <label htmlFor="">
                       <p>
-                        <input type="checkbox" checked={rating === 2}
+                        <input type="radio" name="r1" checked={rating === 2}
                          onChange={()=>dispatch({type:"FILTER_BY_RATING",payload:2})} /> 2
                         <i className="fas fa-star"></i> and above
                       </p>
                     </label>
                     <label htmlFor="">
                     <p>
-                        <input type="checkbox" checked={rating === 4}
+                        <input type="radio" name="r1" checked={rating === 4}
                          onChange={()=>dispatch({type:"FILTER_BY_RATING",payload:4})} /> 4
                         <i className="fas fa-star"></i> and above
                       </p>
@@ -120,7 +120,7 @@ export const Product = () => {
                         Low to High 
                       </label>
                     </p>
-                    <button className="btn sm" onClick={()=> dispatch({type:"CLEAR"})}>clear all</button>
+                    <button className="btn sm" onClick={()=> dispatch({type:"CLEAR"})}>Clear All</button>
                   </div>
                   <br />
                   <hr />
