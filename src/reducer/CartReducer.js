@@ -40,7 +40,11 @@ export const CartReducer = (state, action) => {
                     return item
                 }),
             };
-
+        
+        case "EMPTY_CART":
+            return{
+                cartItems:[]
+            }
         default:
             return state;
     }

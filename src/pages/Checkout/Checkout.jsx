@@ -2,9 +2,18 @@ import { useContext } from "react"
 import "./Checkout.css"
 import { CartContext } from "../../contexts/CartContext."
 import { toast } from "react-toastify";
+import { useAuth } from "../../contexts/AuthContext";
 
 export const Checkout = () => {
-    const {cartItems,total} = useContext(CartContext);
+    const {cartItems,total,dispatch} = useContext(CartContext);
+    const {navigate} = useAuth();
+    const placeOrder = () => {
+        toast.success("Order Placed Successfully");
+        dispatch({type:"EMPTY_CART"});
+        navigate("/");
+        
+
+    }
     return <div className="container">
         <div className="grid-container-column">
             <div className="order-container">
@@ -12,7 +21,7 @@ export const Checkout = () => {
                     <span>Order Summary</span>
                     <hr/>
                     {cartItems.map(({_id,name,price,qty}) => 
-                    <div className="checkout-box">
+                    <div key={_id} className="checkout-box">
                         <div className="box1">
                             <p>{name}</p>
                         </div>
@@ -44,7 +53,7 @@ export const Checkout = () => {
                         </div>
 
                     </div>
-                    <button className="btn dark" onClick={()=> toast.success("Order Placed Successfully")}>Make Payment</button>
+                    <button className="btn dark" onClick={()=> placeOrder()}>Make Payment</button>
                 </div>
             </div>
 

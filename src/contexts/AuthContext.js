@@ -47,8 +47,8 @@ export const AuthProvider = ({ children }) => {
             toast.error("Something Went Wrong");
         }
     };
-    return ( <
-        AuthContext.Provider value = {
+    return ( 
+        <AuthContext.Provider value = {
             {
                 isLoggedIn,
                 setIsLoggedIn,
@@ -58,8 +58,8 @@ export const AuthProvider = ({ children }) => {
                 accessToken,
                 signUpHandler,
             }
-        } > { " " } { children } { " " } <
-        /AuthContext.Provider>
+        } > { " " } { children } { " " } 
+        </AuthContext.Provider>
     );
 };
 

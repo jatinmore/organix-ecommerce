@@ -3,18 +3,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80rem;
+
 }
 
 .checkout-box {
     display: flex;
+    justify-content: center;
+
 }
 
 .box1,
 .box2,
 .box3 {
     flex-direction: row;
-    padding: 1rem;
+    padding: 2rem;
+    width: 15rem;
+
 }
 
 .address-data {
