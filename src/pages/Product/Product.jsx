@@ -129,7 +129,7 @@ export const Product = () => {
             </div>
           </div>
 
-          <div className="">
+          <div className="product">
             <div className="container">
                 <div className="grid-container product-list">
                   {filteredData?.map((item) => {

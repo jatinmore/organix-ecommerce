@@ -15,57 +15,23 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-    return ( <
-        div className = "App" >
-        <
-        Navbar / >
-        <
-        Routes >
-        <
-        Route path = "/mockman"
-        element = { < Mockman / > }
-        />{" "} <
-        Route path = "/"
-        element = { < Home / > }
-        />{" "} <
-        Route path = "product"
-        element = { < Product / > }
-        />{" "} <
-        Route path = "cart"
-        element = { <
-            RequiresAuth >
-            <
-            Cart / >
-            <
-            /RequiresAuth>
-        }
-        />{" "} <
-        Route path = "/wishlist"
-        element = { <
-            RequiresAuth >
-            <
-            Wishlist / >
-            <
-            /RequiresAuth>
-        }
-        />{" "} <
-        Route path = "/productDetail"
-        element = { < ProductDetail / > }
-        />{" "} <
-        Route path = "/login"
-        element = { < Login / > }
-        />{" "} <
-        Route path = "/checkout"
-        element = { < Checkout / > }
-        /> <
-        Route path = "/user"
-        element = { < User / > }
-        /> < /
-        Routes > { " " } <
-        ToastContainer autoClose = { 500 }
-        / > < /
-        div >
-    );
+    return (
+    <div className = "App" >
+        <Navbar / >
+        <Routes >
+        <Route path = "/mockman"element = { < Mockman / > }/>
+        <Route path = "/" element = { < Home / > }/>
+        <Route path = "product" element = { < Product / > }/>
+        <Route path = "cart" element = { <RequiresAuth ><Cart / ></RequiresAuth>}/>
+        <Route path = "/wishlist" element = { <RequiresAuth ><Wishlist / ></RequiresAuth>}/> 
+        <Route path = "/productDetail" element = { < ProductDetail / > }/>
+        <Route path = "/login" element = { < Login / > }/> 
+        <Route path = "/checkout" element = { < Checkout / > }/> 
+        <Route path = "/user" element = { < User / > }/> 
+        </Routes > 
+         <ToastContainer autoClose = { 500 }/ > 
+    </div >
+    )
 }
 
 export default App;
